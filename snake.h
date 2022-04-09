@@ -198,11 +198,9 @@ void gameLoop(Button buttons) {
       break;
   };
   nextCoords(&cp, direction);
-  if(getCellState(cp.x, cp.y)) {
-    if(pointInSnake(cp.x, cp.y)) {
+  if(pointInSnake(cp.x, cp.y)) {
       dead = true;
-      return;
-    }
+  } else if(getCellState(cp.x, cp.y)) {
     growSnake(cp.x, cp.y);
   } else {
     moveSnake(cp.x, cp.y);
